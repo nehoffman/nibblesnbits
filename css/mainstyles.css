@@ -1,0 +1,79 @@
+/* Logo Position and styles */
+h1 {
+    font-weight: 100;
+    font-family:fantasy;
+    display: block;
+    height: auto;
+    height: 50px;
+    width: 400px;
+    background-color: whitesmoke;
+}
+
+
+
+/* Styles for the navigation bar */
+#Nav_Bar {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: deepskyblue;
+}
+
+
+li {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+    background-color:deepskyblue;
+    float: left;
+    display: block;
+    font-size: 25;
+}
+
+
+li a {
+    list-style-type: none;
+    display: block;
+    text-align: center;
+    padding: 20px 30px;
+    text-decoration: none;
+}
+
+/* Active page styles */
+li a:active {
+    background-color: black;
+}
+
+/* Changes navigation bars color when hovered over */
+li a:hover {
+    background-color: white;
+}
+
+
+/* Main HTML background color */
+html {
+    background-color: whitesmoke;
+}
+
+
+
+
+/* Main body element styles */
+p1 {
+    position: absolute;
+    top: 25%;
+    left: 10%;
+    width: 80%;
+    height: 75%;
+    background-color: gainsboro;
+    border-radius: 10px
+}
+
+
+
+/* Login Styles */
+
+
+
+
+
+

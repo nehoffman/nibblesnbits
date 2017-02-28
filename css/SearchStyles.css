@@ -1,0 +1,105 @@
+/* Dictates the search side of the forms styles */
+
+#Search_Ingredients {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    border: 2px solid deepskyblue;
+    border-radius: 5px;
+    width: 80%;
+    height: 10%;
+    font-size: 35;
+}
+
+
+#Ingredients_Found {
+    position: absolute;
+    left: 10%;
+    top: 22%;
+    overflow-y: scroll;
+    width: 80%;
+    height: 75%;
+    background-color: white;
+}
+
+
+/* Search paragraph container styles */
+p3 {
+    position: absolute;
+    border-radius: 10%;
+    top: 25%;;
+    left: 15%;
+    height:70%;
+    width: 25%;
+    background-color: gainsboro;
+}
+
+
+/* h3 Styles for description of box */
+h2 {
+    position: absolute;
+    left: 10%;
+}
+
+
+
+/* Dictates the submit and chosen ingredients form styles */
+#Recipe_Submit {
+    position: absolute;
+    border-radius: 10px;
+    background-color: deepskyblue;
+    border: none;
+    right: 10%;
+    top: 10%;
+    width: 80%;
+    height: 10%;
+    font-size: 25;
+}
+
+#Ingredients_Chosen {
+    position: absolute;
+    right: 10%;
+    top: 22%;
+    overflow-y: scroll;
+    width: 80%;
+    height: 70%;
+    background-color: white;
+}
+
+
+
+
+#Ingredient_List {
+    align-content: center;
+    text-align: center;
+    padding: 5px;
+    background-color: white;
+}
+
+
+/* Find Recipes container */
+p4 {
+    position: absolute;
+    border-radius: 10%;
+    top: 25%;;
+    left: 60%;
+    height:70%;
+    width: 25%;
+    background-color: gainsboro;
+}
+
+
+
+/* Main Search container controlls background color and position */
+/*p2 {
+    background-color: gainsboro;
+    border-radius: 10px;
+    width: 80%;
+    height: 75%;
+    position: absolute;
+    left: 10%;
+} */
+
+
+
+/* Ingredients Found container styles */

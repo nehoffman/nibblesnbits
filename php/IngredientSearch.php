@@ -17,8 +17,17 @@
 	<p3>
 		<ul id="Ingredient_List">
 			<?php
-				$result = connectServer("SELECT * FROM Ingredients LIMIT 50;", "nhoffman");
-				tableToHTML($result);
+				$resultSet = $db->query("SELECT ingredient_name, ingredient_image".
+					   		"FROM Ingredients, Aliases".
+					   		"WHERE ingredient_name LIKE CONCAT(\"%\", $name_param, \"%\")".
+	 				   		"OR (Aliases.ingredient_id = Ingredients.ingredient_id AND alias_name LIKE".
+							"CONCAT(\"%\", $name_param, \"%\"));");
+				$resultArray[] = $resultSet->fetchAll();
+
+				for($i = 0; $i < $resultArray.length; $i++)
+				{
+					echo(<li>$resultArray[$i]</li>);
+				}
 			?>
 		</ul>
 	</p3>

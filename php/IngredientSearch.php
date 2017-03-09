@@ -10,6 +10,7 @@
 
 <body>
 
+
 <form action="IngredientSearch" method="post">
 	
 	<input type="search" id="Search_Ingredients" name="ingredientSearch">
@@ -20,7 +21,7 @@
 		
 			try
 			{
-				$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "8badges");
+				$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "Password1");
 			}
 			catch(PDOException $e)
 			{
@@ -55,9 +56,9 @@
 		?>
 	</ul>
 
+	<script type="text/javascript" src="javascript/dragAndDrop.js"></script>
+	
 </form>
-
-	<script type="text/javascript" src="javascript/dragAndDrop.js">console.log("3");</script>
 	
 </body>
 </html>

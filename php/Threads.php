@@ -50,6 +50,7 @@
 		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5 && $_GET["topic_id"] != 1)
 		{
 			//form to add a thread
+			echo $_SERVER['REQUEST_URI'];
 			echo "<form action='".$_SERVER['REQUEST_URI']."' id='add' method='POST'>";
 			echo "Create a Thread: ";
 			echo "<input type='text' name='threadName'>";

@@ -11,10 +11,18 @@ DELIMITER //
 CREATE PROCEDURE getRecipes(criteria VARCHAR(128))
 BEGIN
 	SET criteria = CONCAT("%", criteria , "%");
-	SELECT recipe_name, recipe_description, recipe_servings, user_name, recipe_instruction, difficulty, comment
+	SELECT recipe_id, recipe_name, recipe_description, recipe_servings, user_name
 		FROM Recipes
 		WHERE
-			recipe_name LIKE(criteria);
+			recipe_name LIKE(criteria) OR
+			recipe_description LIKE(criteria);
+END//
+
+/* after a recipe is found the recipe_id is entered and gives all of the recipe information to the user */
+CREATE PROCEDURE recipeFound(criteria INT)
+BEGIN
+	SELECT * FROM Recipes
+		WHERE recipe_id = criteria;
 END//
 
 /* changes it back */

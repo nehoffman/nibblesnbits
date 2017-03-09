@@ -9,8 +9,6 @@ h1 {
     background-color: whitesmoke;
 }
 
-
-
 /* Styles for the navigation bar */
 #Nav_Bar {
     list-style-type: none;
@@ -18,17 +16,14 @@ h1 {
     background-color: deepskyblue;
 }
 
-
 li {
     display: inline;
     margin: 0px;
     padding: 0px;
-    background-color:deepskyblue;
     float: left;
     display: block;
     font-size: 25;
 }
-
 
 li a {
     list-style-type: none;
@@ -48,14 +43,10 @@ li a:hover {
     background-color: white;
 }
 
-
 /* Main HTML background color */
 html {
     background-color: whitesmoke;
 }
-
-
-
 
 /* Main body element styles */
 p1 {
@@ -68,12 +59,30 @@ p1 {
     border-radius: 10px
 }
 
+/* recipe search styles */
+#recipeSearch
+{
+    float: left;
+    background-color: gainsboro;
+    padding: 5px;
+    margin-left: 9%;
+    height: 75%;
+    width: 80%;
+    overflow: scroll;
+}
 
+button.recipeSearch
+{
+    float: left;
+    font-size: 25;
+    background-color: white;
+    border: 1px;
+    padding: 20px;
+    clear: both;
+    margin: 2px;
+    border: 1px solid black;
+    outline-color: purple;
+    border-radius: 2.5px;
+}
 
 /* Login Styles */
-
-
-
-
-
-

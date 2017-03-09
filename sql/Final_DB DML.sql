@@ -1,4 +1,4 @@
-INSERT INTO users 
+INSERT INTO users.Users
 (user_name, display_name, hash_password, email_address, privilege_level, first_name, last_name, country, state, date_of_birth)
 VALUES 
 ('jBentley', 'JB', 'sprfly', 'jbentley@email.socc.edu', 10, 'Jake', 'Bentley', 'USA', 'OR', '1986-08-22'), 
@@ -7,12 +7,12 @@ VALUES
 ('jBaker', 'JB2', 'sprfly', 'Jacob.Baker@email.socc.edu', 1, 'Jacob', 'Baker', 'USA', 'OR', NULL),
 ('dschab', 'DS', 'sprfly', 'dschab@socc.edu', 10, 'Diana', 'Schab', 'USA', 'OR', NULL);
 
-INSERT INTO topics
+INSERT INTO Topics
 (topic_name, user_name, parent_topic)
 VALUES
 ('Dianas Recipes', 'dschab', NULL);
 
-INSERT INTO threads
+INSERT INTO Threads
 (thread_name,user_name,topic_id)
 VALUES
 ('Amanda Malletts Whole Wheat Bread','dschab',1),
@@ -147,7 +147,7 @@ VALUES
 ('Pizza Night','dschab',1),
 ('Tacos','dschab',1);
 
-INSERT INTO recipes
+INSERT INTO Recipes
 (recipe_name,recipe_description,recipe_servings,user_name,thread_id,recipe_instructions,difficulty,comment)
 VALUES
 ('Amanda Malletts Whole Wheat Bread','Creator of this recipe is unknown.',99,'dschab',1,'Mix water, honey, molasses. Sprinkle in yeast and allow to stand 5 min. Add oil, salt, gluten and half flour. Mix and add rest of flour gradually. Knead 8 min. Turn in greased bowl and allow to rise till doubled. Shape into 2 loaves and put in greased pans and spray oil on top. Cover with saran wrap loosely and rise till double. Bake 27-30 min at 350. Remember rule of thumb for gluten is 1 Tbsp for 1 c wheat flour.',3,NULL),
@@ -282,7 +282,7 @@ VALUES
 ('Pizza Night','Creator of this recipe is unknown.',99,'dschab',130,'Roll out pizza dough into 2 10-12 in circles. Place on baking sheet or pizza pan. Top with sauce and cheese. On one pizza, top with pepperonni. On the other pizza, top with tomatoes and mushrooms.',1,NULL),
 ('Tacos','Creator of this recipe is unknown.',99,'dschab',131,'Put everything together in a taco shell.',1,NULL);
 
-INSERT INTO categories
+INSERT INTO Categories
 (category_id,category_name)
 VALUES
 (1,'Main'),
@@ -294,7 +294,7 @@ VALUES
 (7,'Salad'),
 (8,'Other');
 
-INSERT INTO recipe_categories
+INSERT INTO Recipe_Categories
 (category_id,recipe_id)
 VALUES
 (5,1), 
@@ -429,7 +429,7 @@ VALUES
 (1,130), 
 (1,131);
 
-INSERT INTO ingredient_categories
+INSERT INTO Ingredient_Categories
 (ingredient_type, ingredient_category_name)
 VALUES
 (1,'Grains and Cereals'),
@@ -448,7 +448,7 @@ VALUES
 (14,'Processed Foods'),
 (15,'Other');
 
-INSERT INTO ingredients
+INSERT INTO Ingredients
 (ingredient_name,ingredient_type,ingredient_allergen,ingredient_image)
 VALUES
 ('bread',1,0,'./Images/default.jpg'),
@@ -755,7 +755,7 @@ VALUES
 ('pepperoni',9,0,'./Images/default.jpg'), 
 ('sugar cane',12,0,'./Images/default.jpg');
 
-INSERT INTO measurement_types
+INSERT INTO Measurement_Types
 (measurement_name)
 VALUES
 ('bottle(s)'), 
@@ -783,7 +783,7 @@ VALUES
 ('quart(s)'),
 ('inch(es)');
 
-INSERT INTO measurement_aliases
+INSERT INTO Measurement_Aliases
 (measurement_id,measurement_name)
 VALUES
 (1,'bottle(s)'),
@@ -864,7 +864,7 @@ VALUES
 (24,'in'),
 (24,'');
 
-INSERT INTO ingredient_list
+INSERT INTO Ingredient_List
 (recipe_id,ingredient_id,measurement,measurement_id)
 VALUES
 (1,160,2.25,4), 

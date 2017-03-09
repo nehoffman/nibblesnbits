@@ -1,5 +1,6 @@
 /* Dictates the search side of the forms styles */
 
+
 #Search_Ingredients {
     position: absolute;
     left: 10%;
@@ -100,7 +101,7 @@ p4 {
     background-color: gainsboro;
 }
 
-li {
+#Ingredient_List li {
     margin: 2px;
     background-color: gainsboro;
     clear: both;

@@ -31,7 +31,7 @@
 				echo "<h2>" . $row["topic_name"] . "</h2>";
 			}
 		?>
-		<form method="get">
+		<form method='GET'>
         	<input type="search" name="topic"> 
 			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
 		</form>

@@ -18,7 +18,6 @@
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
 
-
 <form action="IngredientSearch" method="post">
 	
 	<input type="search" id="Search_Ingredients" name="ingredientSearch">
@@ -51,20 +50,76 @@
 				$resultSet->bindValue(':name_param', $name_param);
 			}
 			$resultSet->execute();
-			for($i = 0; $i < $resultSet->rowCount(); $i++)
+			for($i = 1; $i < $resultSet->rowCount() + 1; $i++)
 			{
 				$resultArray = $resultSet->fetch();
+				$ingredient_name = $resultArray["ingredient_name"];
 				echo "<li>";
 				echo "<img src='" . $resultArray["ingredient_image"] . "'>";
-				echo $resultArray["ingredient_name"];
+				echo $ingredient_name;
+				echo "<input type='checkbox' name='$i' value='$ingredient_name'>";
 				echo "</li>";
 			}
 		
 			$resultSet->closeCursor();
 		?>
 	</ul>
+	
+	<ul id="Recipe_List">
+		<?php
+			ini_set("display_errors", "1");
+			error_reporting(E_ERROR);
+		
+			if($_POST['submitted'] != null) {
+				
+				$ingredientsSelected = array();
+				
+				foreach($_POST as $key => $value) {
+					if($key != "ingredientSearch" && $key != "submitted") {
+						$ingredientsSelected[] = $value;
+					}
+						
+				}
 
-	<script type="text/javascript" src="javascript/dragAndDrop.js"></script>
+				$queryHeader="SELECT DISTINCT recipe_id, recipe_name FROM Recipes, Ingredient_List, Ingredients ".
+							 "WHERE Ingredients.ingredient_id = Ingredient_List.ingredient_id AND Recipes.recipe_id = ".
+							 "Ingredient_List.recipe_id AND (ingredient_name = :ingredientName0";
+				
+				$queryFooter="";
+				
+				for($i = 1; i < count($ingredientsSelected); $i++)
+				{
+					$queryFooter .= " OR ingredient_name = :ingredientName" . $i;
+				}
+				
+				$queryFooter .= ");";
+				
+				$recipesFound = $db->prepare($queryHeader . $queryFooter);
+				
+				for($i = 0; i < count($ingredientsSelected); $i++)
+				{
+					$recipesFound->bindValue(":ingredientName" + $i, $ingredientsSelected[$i]);
+				}
+				
+				$recipesFound->execute($ingredientsSelected);
+				
+				//echo($recipesFound->rowCount());
+				
+				for($i = 1; $i < count($ingredientsSelected) + 1; $i++)
+				{
+					$resultArray = $recipesFound->fetch();
+					echo "<li>";
+					echo $resultArray["recipe_name"];
+					echo "</li>";
+				}
+		
+			$recipesFound->closeCursor();
+			}
+		?>
+	</ul>
+	
+	<input type='checkbox' name='submitted' value='true'>
+	<!--<script type="text/javascript" src="javascript/dragAndDrop.js"></script> NOT READY YET-->
 	
 </form>
 	

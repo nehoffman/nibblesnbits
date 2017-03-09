@@ -28,8 +28,10 @@
 				$posts = connectServer("CALL getPosts('".$_GET["thread_id"]."')", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($posts))
 				{
+					echo "<li class='search'>";
 					echo "<p style='float: right'>" . $row["user_name"] . " posted at " . $row["time_posted"] . "</p><br>";
 					echo "<p>" . $row["post_content"] . "</p>";
+					echo "</li>";
 				}
 			?>
 		</ul>

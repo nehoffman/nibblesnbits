@@ -6,18 +6,18 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+        <link rel="stylesheet" type="text/css" href="MainStyles">
         <title>Project Nibbles and Bits</title>
     </head>
     
     <body>
         <h1>Project Nibbles and Bits</h1>
        	<?php
-		include 'functions.php';
+		include 'Functions.php';
 		loginDisplay($_SESSION["userName"]);
 	?>
         
-        <form action="php/tempLogIn.php" method="post" id="Login_Form">
+        <form action="TempLogIn" method="post" id="Login_Form">
             <label>User Name: </label>
             <input type="text" name="userName" placeholder="User Name">
             <label>Password: </label>
@@ -28,7 +28,7 @@
         
         
         <ul id="Nav_Bar">
-            <li><a href="index">Home</a></li>
+            <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
             <li><a href="Catagories">Catagories</a></li>

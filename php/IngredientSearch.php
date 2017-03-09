@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Nathan Hoffman">
-	<link rel="stylesheet" type="text/css" href="css/mainstyles.css">
-    <link rel="stylesheet" type="text/css" href="css/SearchStyles.css">
+	<link rel="stylesheet" type="text/css" href="MainStyles">
+    <link rel="stylesheet" type="text/css" href="SearchStyles">
 </head>
 
 <body>
@@ -18,7 +18,6 @@
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
 
-
 <form action="IngredientSearch" method="post">
 	
 	<input type="search" id="Search_Ingredients" name="ingredientSearch">
@@ -29,7 +28,7 @@
 		
 			try
 			{
-				$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "Password1");
+				$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "8badges");
 			}
 			catch(PDOException $e)
 			{
@@ -64,9 +63,9 @@
 		?>
 	</ul>
 
-	<script type="text/javascript" src="javascript/dragAndDrop.js"></script>
-	
 </form>
+
+	<script type="text/javascript" src="DragAndDrop">console.log("3");</script>
 	
 </body>
 </html>

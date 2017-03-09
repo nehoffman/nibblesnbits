@@ -6,7 +6,7 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+        <link rel="stylesheet" type="text/css" href="MainStyles">
         <title>Project Nibbles and Bits</title>
     </head>
     
@@ -16,12 +16,12 @@
         <h1>Project Nibbles and Bits</h1>
 
 	<?php
-		include 'functions.php';
+		include 'Functions';
 		loginDisplay($_SESSION["userName"]);
 	?>
         
         <ul id="Nav_Bar">
-            <li><a href="index">Home</a></li>
+            <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
             <li><a href="Catagories">Catagories</a></li>

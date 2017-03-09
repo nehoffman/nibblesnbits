@@ -25,9 +25,12 @@
         </ul>
 		<ul styles="height: 70%" id="search">
 			<?php
-				$error = connectServer("CALL insertPost('".$_POST["post"]."','".$_SESSION["userName"]."','".$_GET["thread_id"]."')", $_SESSION["userName"]);
-				if($error != null)
-					echo "<script> alert('$error'); </script>";
+				if($_POST["post"]) != null)
+				{
+					$error = connectServer("CALL insertPost('".$_POST["post"]."','".$_SESSION["userName"]."','".$_GET["thread_id"]."')", $_SESSION["userName"]);
+					if($error != null)
+						echo "<script> alert('$error'); </script>";
+				}
 				$posts = connectServer("CALL getPosts('".$_GET["thread_id"]."')", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($posts))
 				{

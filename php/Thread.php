@@ -39,7 +39,7 @@
 		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5)
 		{
 			//form to post a message
-			echo "<form method='POST'>";
+			echo "<form id='add' method='POST'>";
 			echo "Message: ";
 			echo "<input type='text' name='post'>";
 			echo "<input type='submit' value='Post'";

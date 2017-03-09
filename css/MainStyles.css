@@ -62,7 +62,8 @@ p1 {
 /* recipe search styles */
 #add
 {
-	margin-top: 75%;
+	margin-bottom: 75%;
+	margin-left: 12%;
 }
 
 #search

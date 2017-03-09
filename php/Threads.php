@@ -13,7 +13,11 @@
     
     <body>
         <h1>Project Nibbles and Bits</h1>
-		<?php loginDisplay($_SESSION["userName"]); ?>
+		<?php
+			loginDisplay($_SESSION["userName"]);
+			if($_GET["topic_id"] != null)
+				$_SESSION["topic_id"] = $_GET["topic_id"];
+		?>
 
         <ul id="Nav_Bar">
             <li><a href="Index">Home</a></li>
@@ -38,7 +42,7 @@
 		<ul style="height: 70%" id="search">
 			<?php
 				connectServer("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', ".$_GET["topic_id"].")", $_SESSION["userName"]);
-				$threads = connectServer("CALL getThreads('".$_GET["topic"]."',".$_GET["topic_id"].");", $_SESSION["userName"]);
+				$threads = connectServer("CALL getThreads('".$_GET["topic"]."',".$_SESSION["topic_id"].");", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($threads))
 				{
 						echo "<button class='search' onclick=location.href='Thread?thread_id=" . $row["thread_id"] . "'>" . $row["thread_name"] . "</button>";

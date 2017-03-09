@@ -17,7 +17,7 @@ CREATE TABLE Users
    CONSTRAINT PRIMARY KEY (user_name)
 );
 
-INSERT INTO users 
+INSERT INTO Users 
 (user_name, display_name, hash_password, email_address, privilege_level, first_name, last_name, country, state, date_of_birth)
 VALUES 
 ('jBentley', 'JB', 'sprfly', 'jbentley@email.socc.edu', 10, 'Jake', 'Bentley', 'USA', 'OR', '1986-08-22'), 
@@ -37,7 +37,7 @@ CREATE TABLE Topics
    CONSTRAINT FOREIGN KEY (parent_topic) REFERENCES Topics(topic_id)
 );
 
-INSERT INTO topics
+INSERT INTO Topics
 (topic_name, user_name, parent_topic)
 VALUES
 ('Dianas Recipes', 'dschab', NULL);
@@ -52,7 +52,7 @@ CREATE TABLE Threads
    CONSTRAINT FOREIGN KEY (topic_id) REFERENCES Topics(topic_id)
 );
 
-INSERT INTO threads
+INSERT INTO Threads
 (thread_name,user_name,topic_id)
 VALUES
 ('Amanda Malletts Whole Wheat Bread','dschab',1),
@@ -215,7 +215,7 @@ CREATE TABLE Recipes
    CONSTRAINT FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
 );
 
-INSERT INTO recipes
+INSERT INTO Recipes
 (recipe_name,recipe_description,recipe_servings,user_name,thread_id,recipe_instructions,difficulty,comment)
 VALUES
 ('Amanda Malletts Whole Wheat Bread','Creator of this recipe is unknown.',99,'dschab',1,'Mix water, honey, molasses. Sprinkle in yeast and allow to stand 5 min. Add oil, salt, gluten and half flour. Mix and add rest of flour gradually. Knead 8 min. Turn in greased bowl and allow to rise till doubled. Shape into 2 loaves and put in greased pans and spray oil on top. Cover with saran wrap loosely and rise till double. Bake 27-30 min at 350. Remember rule of thumb for gluten is 1 Tbsp for 1 c wheat flour.',3,NULL),
@@ -357,7 +357,7 @@ CREATE TABLE Categories
    CONSTRAINT PRIMARY KEY (category_id)
 );
 
-INSERT INTO categories
+INSERT INTO Categories
 (category_id,category_name)
 VALUES
 (1,'Main'),
@@ -378,7 +378,7 @@ CREATE TABLE Recipe_Categories
    CONSTRAINT FOREIGN KEY (recipe_id) REFERENCES Recipes(recipe_id)
 );
 
-INSERT INTO recipe_categories
+INSERT INTO Recipe_Categories
 (category_id,recipe_id)
 VALUES
 (5,1), 
@@ -522,14 +522,14 @@ CREATE TABLE User_Favorites
    CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name)
 );
 
-CREATE TABLE ingredient_categories
+CREATE TABLE Ingredient_Categories
 (
     ingredient_type INT NOT NULL,
     ingredient_category_name VARCHAR(45) NOT NULL,
     CONSTRAINT PRIMARY KEY (ingredient_type)
 );
 
-INSERT INTO ingredient_categories
+INSERT INTO Ingredient_Categories
 (ingredient_type, ingredient_category_name)
 VALUES
 (1,'Grains and Cereals'),
@@ -558,7 +558,7 @@ CREATE TABLE Ingredients
    CONSTRAINT PRIMARY KEY (ingredient_id)
 );
 
-INSERT INTO ingredients
+INSERT INTO Ingredients
 (ingredient_name,ingredient_type,ingredient_allergen,ingredient_image)
 VALUES
 ('bread',1,0,'./Images/default.jpg'),
@@ -881,7 +881,7 @@ CREATE TABLE Measurement_Types
    CONSTRAINT PRIMARY KEY (measurement_id)
 );
 
-INSERT INTO measurement_types
+INSERT INTO Measurement_Types
 (measurement_name)
 VALUES
 ('bottle(s)'), 
@@ -918,7 +918,7 @@ CREATE TABLE Measurement_Aliases
    CONSTRAINT FOREIGN KEY (measurement_id) REFERENCES Measurement_Types(measurement_id)
 );
 
-INSERT INTO measurement_aliases
+INSERT INTO Measurement_Aliases
 (measurement_id,measurement_name)
 VALUES
 (1,'bottle(s)'),
@@ -1073,7 +1073,7 @@ CREATE TABLE Ingredient_List
    CONSTRAINT FOREIGN KEY (measurement_id) REFERENCES Measurement_Types(measurement_id)
 );
 
-INSERT INTO ingredient_list
+INSERT INTO Ingredient_List
 (recipe_id,ingredient_id,measurement,measurement_id)
 VALUES
 (1,160,2.25,4), 

@@ -72,10 +72,22 @@ h2 {
 #Ingredient_List {
     align-content: center;
     text-align: center;
-    padding: 5px;
     background-color: white;
+    overflow: scroll;
+    position: absolute;
+    border-radius: 10%;
+    top: 25%;;
+    left: 15%;
+    height:69%;
+    width: 20%;
+    background-color: gainsboro;
 }
 
+img {
+    border-radius: 10px;
+    margin-right: 5px;
+    float: left;
+}
 
 /* Find Recipes container */
 p4 {
@@ -88,6 +100,16 @@ p4 {
     background-color: gainsboro;
 }
 
+li {
+    margin: 2px;
+    background-color: gainsboro;
+    clear: both;
+    border: 1px solid black;
+    outline-color: purple;
+    border-radius: 2.5px;
+    padding: 5%;
+    width: 80%;
+}
 
 
 /* Main Search container controlls background color and position */

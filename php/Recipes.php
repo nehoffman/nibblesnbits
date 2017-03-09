@@ -6,8 +6,8 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="mainstyles.css">
-        <link rel="stylesheet" type="text/css" href="SearchStyles.css">
+        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+        <link rel="stylesheet" type="text/css" href="css/SearchStyles.css">
         <title>Project Nibbles and Bits</title>
     </head>
     
@@ -19,19 +19,19 @@
 	?>
         
         <ul id="Nav_Bar">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="Recipes.php">Recipes</a></li>
-            <li><a href="MyRecipes.php">My Recipes</a></li>
-            <li><a href="Categories.php">Categories</a></li>
-            <li><a href="Forums.php">Forums</a></li>
-            <li><a href="TipsAndTricks.php">Tips and Tricks</a></li>
+            <li><a href="index">Home</a></li>
+            <li><a href="Recipes">Recipes</a></li>
+            <li><a href="MyRecipes">My Recipes</a></li>
+            <li><a href="Categories">Categories</a></li>
+            <li><a href="Forums">Forums</a></li>
+            <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
         
  
         
         <p2>
       
-            <form action="RecipesFound.php" method="post">
+            <form action="RecipesFound" method="post">
                     
                 <p3> <h2>Ingredients Search</h2>
                     <input type="search" id="Search_Ingredients"> 

@@ -6,8 +6,8 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="mainstyles.css">
-        <link rel="stylesheet" type="text/css" href="MyRecipesStyles.css">
+        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+        <link rel="stylesheet" type="text/css" href="css/MyRecipesStyles.css">
         <title>Project Nibbles and Bits</title>
     </head>
     
@@ -19,16 +19,16 @@
 	?>
         
         <ul id="Nav_Bar">
-            <li><a href="index.php">Home</a></li>
-            <li><a href="MyRecipes.php">My Recipes</a></li>
-            <li><a href="Categories.php">Categories</a></li>
-            <li><a href="Forums.php">Forums</a></li>
-            <li><a href="TipsAndTricks.php">Tips and Tricks</a></li>
+            <li><a href="index">Home</a></li>
+            <li><a href="MyRecipes">My Recipes</a></li>
+            <li><a href="Categories">Categories</a></li>
+            <li><a href="Forums">Forums</a></li>
+            <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
       
         
         <p1>
-            <form id="Create_Recipes" action="Add_Recipe.php">
+            <form id="Create_Recipes" action="php/Add_Recipe.php">
                 <div>
                     <Label><b>Create Your Own Recipe!</b></Label><br><br>
                     <label><b>Recipe Name</b></label>

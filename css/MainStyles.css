@@ -62,7 +62,7 @@ p1 {
 /* recipe search styles */
 #add
 {
-	float: bottom;
+	margin-top: 75%;
 }
 
 #search

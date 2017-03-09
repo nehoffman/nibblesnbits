@@ -18,6 +18,7 @@
 		<?php
 			include 'Functions';
 			$result = login($_POST["userName"], $_POST["password"]);
+			$_SESSION["privelege"];
 			if($result == -1)
 				$_SESSION["userName"] = "login";
 			else

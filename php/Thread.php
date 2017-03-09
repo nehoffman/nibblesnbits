@@ -31,7 +31,7 @@
 					if($error != null)
 						echo "<script> alert('$error'); </script>";
 				}
-				$posts = connectServer("CALL getPosts('".$_GET["thread_id"]."')", $_SESSION["userName"]);
+				$posts = connectServer("CALL getPosts(".$_GET["thread_id"].")", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($posts))
 				{
 					echo "<li class='search'>";

@@ -51,7 +51,7 @@
 				<input type="text" name="userName" placeholder="User Name">
 				<label>Password: </label>
 				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="Submit" value="login"> <button onclick=location.href"SignUp"> Register </button>
+				<input type="submit" name="Submit" value="login"> <button onclick=location.href="SignUp"> Register </button>
         		</form>';
 		else if($userName == "login")
 			echo '
@@ -60,7 +60,7 @@
 				<input type="text" name="userName" placeholder="User Name">
 				<label>Password: </label>
 				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="Submit"> <button onclick=location.href"SignUp"> Register </button>
+				<input type="submit" name="Submit"> <button onclick=location.href="SignUp"> Register </button>
 				login failed
         		</form>';
 		else

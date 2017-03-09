@@ -35,5 +35,12 @@ BEGIN
 			topic_name LIKE(criteria);
 END//
 
+/* after a topic is found it gives all of the information about the topic away */
+CREATE PROCEDURE topicFound(criteria INT)
+BEGIN
+	SELECT * FROM Topics
+		WHERE topic_id = criteria;
+END//
+
 /* changes it back */
 DELIMITER ;

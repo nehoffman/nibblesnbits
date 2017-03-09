@@ -25,18 +25,19 @@
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
 		<h2>Topic Search</h2>
-		<form action="Index" method="get">
+		<form action="Forums" method="get">
          	<input type="search" name="topic"> 
 			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
 		</form>
 		<ul id="search">
 			<?php
-				$recipes = connectServer("CALL getTopics('".$_GET["topic"]."');", $_SESSION["userName"]);
-				while($row = mysqli_fetch_assoc($recipes))
+				$topics = connectServer("CALL getTopics('".$_GET["topic"]."');", $_SESSION["userName"]);
+				while($row = mysqli_fetch_assoc($topics))
 				{
-						echo "<button class='search' onclick=location.href='Forums?topic_id=" . $row["topic_id"] . "'>" . $row["topic_name"] . "</button>";
+						echo "<button class='search' onclick=location.href='Threads?topic_id=" . $row["topic_id"] . "'>" . $row["topic_name"] . "</button>";
 						echo "<br>";
 				}
 			?>
+		</ul>
     </body>
 </html>

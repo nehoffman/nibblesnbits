@@ -42,5 +42,16 @@ BEGIN
 		WHERE topic_id = criteria;
 END//
 
+/* searches for all threads in the Forums section */
+CREATE PROCEDURE getThreads(criteria VARCHAR(128), topicId INT)
+BEGIN
+	SET criteria = CONCAT("%", criteria , "%");
+	SELECT thread_id, thread_name
+		FROM Threads
+		WHERE
+			thread_name LIKE(criteria) AND
+			topic_id = topicId;
+END//
+
 /* changes it back */
 DELIMITER ;

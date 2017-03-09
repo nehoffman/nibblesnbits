@@ -25,19 +25,19 @@
         </ul>
 		<?php
 			//retrieves the header
-			$recipe = connectServer("CALL topicFound('".$_GET["topic_id"]."')", $_SESSION["userName"]);
-			while($row = mysqli_fetch_assoc($recipe))
+			$topic = connectServer("CALL topicFound('".$_GET["topic_id"]."')", $_SESSION["userName"]);
+			while($row = mysqli_fetch_assoc($topic))
 			{
-				echo "<h2>" . $row["recipe_name"] . "</h2>";
+				echo "<h2>" . $row["topic_name"] . "</h2>";
 			}
 		?>
-		<form action="Forums" method="get">
+		<form method="get">
         	<input type="search" name="topic"> 
 			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
 		</form>
 		<ul id="search">
 			<?php
-				$threads = connectServer("CALL getThreads('".$_GET["topic_id"]."');", $_SESSION["userName"]);
+				$threads = connectServer("CALL getThreads('".$_GET["topic"]."','".$_GET["topic_id"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($threads))
 				{
 						echo "<button class='search' onclick=location.href='Thread?thread_id=" . $row["thread_id"] . "'>" . $row["thread_name"] . "</button>";

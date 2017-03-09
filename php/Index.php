@@ -35,7 +35,7 @@
 				$recipes = connectServer("CALL getRecipes('".$_GET["recipeName"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($recipes))
 				{
-						echo "<button class='recipeSearch' onclick=location.href='Recipe?recipe_id=" . $row["recipe_id"] . "'>" . $row["recipe_name"] . "by " . $row["user_name"] . " " . $row["recipe_servings"] . " servings Description: " . $row["recipe_description"] . "</button>";
+						echo "<button class='search' onclick=location.href='Recipe?recipe_id=" . $row["recipe_id"] . "'>" . $row["recipe_name"] . "by " . $row["user_name"] . " " . $row["recipe_servings"] . " servings Description: " . $row["recipe_description"] . "</button>";
 						echo "<br>";
 				}
 			?>

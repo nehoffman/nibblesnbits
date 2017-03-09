@@ -7,7 +7,7 @@
 	function connectServer($query, $userName)
 	{
 		$link = mysqli_connect("localhost", "anonymous", "anonymous", "recipes");
-		return mysqli_query($link, $query);
+		$result = mysqli_query($link, $query);
 		/*$link = mysqli_connect("localhost","login","login","users");
 		if(mysqli_connect_errno())
 			$result = "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -21,9 +21,9 @@
 				$result = "Failed to connect to MySQL: " . mysqli_connect_error();
 			else
 				$result = mysqli_query($link, $query);
-		}
+		}*/
 		mysqli_close();
-		return $result;*/
+		return $result;
 	}
 
 	//connects to server and logs you in succedes if it returns a positive privilige level
@@ -46,12 +46,12 @@
 	{
 		if($userName == null)
 			echo '
-				<form action="TempLogIn.php" method="post" id="Login_Form">
+				<form action="TempLogIn" method="post" id="Login_Form">
 				<label>User Name: </label>
 				<input type="text" name="userName" placeholder="User Name">
 				<label>Password: </label>
 				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="Submit"> <button onclick=location.href"SignUp"> Register </button>
+				<input type="submit" name="Submit" value="login"> <button onclick=location.href"SignUp"> Register </button>
         		</form>';
 		else if($userName == "login")
 			echo '

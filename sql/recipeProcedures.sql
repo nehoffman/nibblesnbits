@@ -70,7 +70,7 @@ BEGIN
 END//
 
 /* adds a thread */
-CREATE PROCEDURE insertThread(name VARCHAR(128), topic INT, user VARCHAR(45))
+CREATE PROCEDURE insertThread(name VARCHAR(128), user VARCHAR(45), topic INT)
 BEGIN
 	INSERT INTO Threads(thread_name, user_name, topic_id) VALUES
 		(name, user, topic);

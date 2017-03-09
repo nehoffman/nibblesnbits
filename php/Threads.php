@@ -37,8 +37,8 @@
 		</form>
 		<ul style="height: 70%" id="search">
 			<?php
-				$error = connectServer("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', '".$_GET["topic_id"]."')", $_SESSION["userName"]);
-				$threads = connectServer("CALL getThreads('".$_GET["topic"]."','".$_GET["topic_id"]."');", $_SESSION["userName"]);
+				connectServer("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', ".$_GET["topic_id"].")", $_SESSION["userName"]);
+				$threads = connectServer("CALL getThreads('".$_GET["topic"]."',".$_GET["topic_id"].");", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($threads))
 				{
 						echo "<button class='search' onclick=location.href='Thread?thread_id=" . $row["thread_id"] . "'>" . $row["thread_name"] . "</button>";

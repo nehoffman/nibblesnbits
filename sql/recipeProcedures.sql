@@ -53,5 +53,14 @@ BEGIN
 			topic_id = topicId;
 END//
 
+/* retrieves all posts in a thread */
+CREATE PROCEDURE getPosts(threadId INT)
+BEGIN
+	SELECT post_content, user_name, date_posted
+		FROM Posts
+		WHERE
+			thread_id = threadId;
+END//
+
 /* changes it back */
 DELIMITER ;

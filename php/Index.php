@@ -25,12 +25,12 @@
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
         
-  		<h2>Ingredients Search</h2>
+  		<h2>Recipe Search</h2>
 		<form action="Index" method="get">
          	<input type="search" name="recipeName"> 
 			<input id="Recipe_Submit" type="submit" value="Find Recipes"> 
 		</form>
-		<ul id="recipeSearch">
+		<ul id="search">
 			<?php
 				$recipes = connectServer("CALL getRecipes('".$_GET["recipeName"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($recipes))

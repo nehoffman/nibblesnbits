@@ -25,5 +25,15 @@ BEGIN
 		WHERE recipe_id = criteria;
 END//
 
+/* searches for all topics in the Forums section */
+CREATE PROCEDURE getTopics(criteria VARCHAR(128))
+BEGIN
+	SET criteria = CONCAT("%", criteria , "%");
+	SELECT topic_id, topic_name
+		FROM Topics
+		WHERE
+			topic_name LIKE(criteria);
+END//
+
 /* changes it back */
 DELIMITER ;

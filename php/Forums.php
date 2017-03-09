@@ -13,9 +13,9 @@
     <body>
         <h1>Project Nibbles and Bits</h1>
        	<?php
-		include 'Functions';
-		loginDisplay($_SESSION["userName"]);
-	?>
+			include 'Functions';
+			loginDisplay($_SESSION["userName"]);
+		?>
         <ul id="Nav_Bar">
             <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
@@ -24,5 +24,19 @@
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
+		<h2>Topic Search</h2>
+		<form action="Index" method="get">
+         	<input type="search" name="topic"> 
+			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
+		</form>
+		<ul id="search">
+			<?php
+				$recipes = connectServer("CALL getTopics('".$_GET["topic"]."');", $_SESSION["userName"]);
+				while($row = mysqli_fetch_assoc($recipes))
+				{
+						echo "<button class='search' onclick=location.href='Forums?topic_id=" . $row["topic_id"] . "'>" . $row["topic_name"] . "</button>";
+						echo "<br>";
+				}
+			?>
     </body>
 </html>

@@ -10,7 +10,12 @@ VALUES
 INSERT INTO Topics
 (topic_name, parent_topic)
 VALUES
-('Recipes', NULL);
+('Recipes', NULL),
+('Automobiles', NULL),
+('Cars', 2),
+('Computers', NULL),
+('Software', 4),
+('Web Design', 5);
 
 INSERT INTO Threads
 (thread_name,user_name,topic_id)

@@ -60,7 +60,7 @@ p1 {
 }
 
 /* recipe search styles */
-#recipeSearch
+#search
 {
     float: left;
     background-color: gainsboro;
@@ -71,7 +71,7 @@ p1 {
     overflow: scroll;
 }
 
-button.recipeSearch
+button.search
 {
     float: left;
     font-size: 25;

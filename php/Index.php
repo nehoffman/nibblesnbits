@@ -1,7 +1,6 @@
 <?php
 	//Start the session
 	session_start();
-	include 'Functions';
 ?>
 <DOCTYPE html>
 <html>
@@ -13,7 +12,10 @@
     
     <body>
         <h1>Project Nibbles and Bits</h1>
-		<?php loginDisplay($_SESSION["userName"]); ?>
+		<?php
+			include 'Functions';
+			loginDisplay($_SESSION["userName"]);
+		?>
 
         <ul id="Nav_Bar">
             <li><a href="Index">Home</a></li>
@@ -31,10 +33,10 @@
 		</form>
 		<ul id="recipeSearch">
 			<?php
-				$recipes = connectServer("CALL getRecipes('".$_GET["recipeName"]."');", jBaker);
+				$recipes = connectServer("CALL getRecipes('".$_GET["recipeName"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($recipes))
 				{
-						echo "<button class='recipeSearch' onclick=location.href='/recipe.php?recipe_id=" . $row["recipe_id"] . "'>" . $row["recipe_name"] . "by " . $row["user_name"] . " " . $row["recipe_servings"] . " servings Description: " . $row["recipe_description"] . "</button>";
+						echo "<button class='recipeSearch' onclick=location.href='/Recipe?recipe_id=" . $row["recipe_id"] . "'>" . $row["recipe_name"] . "by " . $row["user_name"] . " " . $row["recipe_servings"] . " servings Description: " . $row["recipe_description"] . "</button>";
 						echo "<br>";
 				}
 			?>

@@ -7,7 +7,6 @@
     
     <head>  
         <link rel="stylesheet" type="text/css" href="MainStyles">
-        <link rel="stylesheet" type="text/css" href="SearchStyles">
         <title>Project Nibbles and Bits</title>
     </head>
     
@@ -26,15 +25,5 @@
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
-        
- 
-        <p1>
-        
-        
-        </p1>
-
-
-        
     </body>
-    
 </html>

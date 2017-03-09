@@ -16,17 +16,6 @@
 		include 'Functions';
 		loginDisplay($_SESSION["userName"]);
 	?>
-        
-        <form action="TempLogIn" method="post" id="Login_Form">
-            <label>User Name: </label>
-            <input type="text" name="userName" placeholder="User Name">
-            <label>Password: </label>
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" name="Submit">
-        </form>
-
-        
-        
         <ul id="Nav_Bar">
             <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
@@ -35,14 +24,5 @@
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
-        
-        
-        <p1>
-
-        </p1>
-        
-        
-
     </body>
-    
 </html>

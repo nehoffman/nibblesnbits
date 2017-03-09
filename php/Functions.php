@@ -66,7 +66,7 @@
 		else
 			echo "<ul>";
 			echo "<p id='Login_Form'> Welcome $userName </p>";
-			echo "<button onlick=location.href='account'> My Accounts </button>";
+			echo "<button onlick=location.href='Account'> My Account </button>";
 			echo "<button onlick=location.href='Index?logout=true'> Logout </button>";
 			echo "</ul>";
 	}

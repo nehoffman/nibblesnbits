@@ -25,6 +25,15 @@ li {
     font-size: 25;
 }
 
+#Nav_Bar li {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+    display: block;
+    font-size: 25;
+}
+
 li a {
     list-style-type: none;
     display: block;

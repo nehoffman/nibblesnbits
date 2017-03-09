@@ -51,7 +51,7 @@
 			?>
 		</ul>
 		<?php
-		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5 && $_GET["topic_id"] != 1)
+		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5 && $_SESSION"topic_id"] != 1)
 		{
 			//form to add a thread
 			echo "<form action=Threads?topic_id=".$_GET["topic_id"]." id='add' method='POST'>";

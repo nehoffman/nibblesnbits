@@ -13,7 +13,10 @@
     
     <body>
         <h1>Project Nibbles and Bits</h1>
-		<?php loginDisplay($_SESSION["userName"]); ?>
+		<?php
+			include 'Functions';
+			loginDisplay($_SESSION["userName"]);
+		?>
 
         <ul id="Nav_Bar">
             <li><a href="Index">Home</a></li>
@@ -25,7 +28,7 @@
         </ul>
 		<ul styles="height: 70%" id="search">
 			<?php
-				if($_POST["post"]) != null)
+				if($_POST["post"]  != null)
 				{
 					$error = connectServer("CALL insertPost('".$_POST["post"]."','".$_SESSION["userName"]."','".$_GET["thread_id"]."')", $_SESSION["userName"]);
 					if($error != null)

@@ -62,5 +62,19 @@ BEGIN
 			thread_id = threadId;
 END//
 
+/* adds a post */
+CREATE PROCEDURE insertPost(content TEXT, user VARCHAR(45), thread INT)
+BEGIN
+	INSERT INTO Posts(post_content, user_name, thread_id) VALUES
+		(content, user, thread);
+END//
+
+/* adds a thread */
+CREATE PROCEDURE insertThread(name VARCHAR(128), topic INT, user VARCHAR(45))
+BEGIN
+	INSERT INTO Threads(thread_name, user_name, topic_id) VALUES
+		(name, user, topic);
+END//
+
 /* changes it back */
 DELIMITER ;

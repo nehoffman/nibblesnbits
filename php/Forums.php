@@ -29,7 +29,7 @@
          	<input type="search" name="topic"> 
 			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
 		</form>
-		<ul id="search">
+		<ul styles="height: 70%" id="search">
 			<?php
 				$topics = connectServer("CALL getTopics('".$_GET["topic"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($topics))

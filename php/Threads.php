@@ -37,6 +37,7 @@
 		</form>
 		<ul style="height: 70%" id="search">
 			<?php
+				$error = connectServer("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', '".$_GET["topic_id"]."')", $_SESSION["userName"]);
 				$threads = connectServer("CALL getThreads('".$_GET["topic"]."','".$_GET["topic_id"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($threads))
 				{
@@ -49,7 +50,7 @@
 		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5 && $_GET["topic_id"] != 1)
 		{
 			//form to add a thread
-			echo "<form id='add' method='POST'>";
+			echo "<form action='".$_SERVER['REQUEST_URI']."' id='add' method='POST'>";
 			echo "Create a Thread: ";
 			echo "<input type='text' name='threadName'>";
 			echo "<input type='submit' value='Create'";

@@ -53,7 +53,7 @@
 			echo "<form action=location.href/Threads?topic_id='".$_GET["topic_id"]."' id='add' method='POST'>";
 			echo "Create a Thread: ";
 			echo "<input type='text' name='threadName'>";
-			echo "<input type='submit' value='Create'";
+			echo "<input type='submit' value='Create>'";
 			echo "</form>";
 		}
 		?>

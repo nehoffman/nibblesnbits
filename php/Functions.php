@@ -51,10 +51,18 @@
 				<input type="text" name="userName" placeholder="User Name">
 				<label>Password: </label>
 				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="Submit">
+				<input type="submit" name="Submit"> <button onclick=location.href"SignUp"> Register </button>
         		</form>';
 		else if($userName == "login")
-			echo "<p> login failed </p>";
+			echo '
+				<form action="TempLogIn.php" method="post" id="Login_Form">
+				<label>User Name: </label>
+				<input type="text" name="userName" placeholder="User Name">
+				<label>Password: </label>
+				<input type="password" name="password" placeholder="Password">
+				<input type="submit" name="Submit"> <button onclick=location.href"SignUp"> Register </button>
+				login failed
+        		</form>';
 		else
 			echo "<p id='Login_Form'> Welcome $userName </p>";
 	}

@@ -35,7 +35,7 @@
         	<input type="search" name="topic"> 
 			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
 		</form>
-		<ul id="search">
+		<ul style="height: 70%" id="search">
 			<?php
 				$threads = connectServer("CALL getThreads('".$_GET["topic"]."','".$_GET["topic_id"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($threads))
@@ -49,7 +49,7 @@
 		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5)
 		{
 			//form to add a thread
-			echo "<form method='POST'>";
+			echo "<form id='add' method='POST'>";
 			echo "Create a Thread: ";
 			echo "<input type='text' name='threadName'>";
 			echo "<input type='submit' value='Create'";

@@ -1,6 +1,8 @@
-DROP DATABASE IF EXISTS Final_DB;
-CREATE DATABASE Final_DB;
-USE Final_DB;
+DROP DATABASE IF EXISTS users;
+DROP DATABASE IF EXISTS recipes;
+CREATE DATABASE users;
+CREATE DATABASE recipes;
+USE users;
 
 CREATE TABLE Users
 (
@@ -17,6 +19,8 @@ CREATE TABLE Users
    CONSTRAINT PRIMARY KEY (user_name)
 );
 
+use recipes;
+
 CREATE TABLE Topics
 (
    topic_id INT NOT NULL AUTO_INCREMENT,
@@ -24,7 +28,7 @@ CREATE TABLE Topics
    user_name VARCHAR(45) NOT NULL,
    parent_topic INT,
    CONSTRAINT PRIMARY KEY Topics(topic_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
    CONSTRAINT FOREIGN KEY (parent_topic) REFERENCES Topics(topic_id)
 );
 
@@ -46,7 +50,7 @@ CREATE TABLE Posts
    user_name VARCHAR(45) NOT NULL,
    thread_id INT NOT NULL,
    CONSTRAINT PRIMARY KEY (post_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
    CONSTRAINT FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
 );
 
@@ -62,7 +66,7 @@ CREATE TABLE Recipes
    difficulty INT NOT NULL,
    comment VARCHAR(500),
    CONSTRAINT PRIMARY KEY (recipe_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
    CONSTRAINT FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
 );
 
@@ -88,10 +92,10 @@ CREATE TABLE User_Favorites
    user_name VARCHAR(45) NOT NULL,
    CONSTRAINT PRIMARY KEY (recipe_id, user_name),
    CONSTRAINT FOREIGN KEY (recipe_id) REFERENCES Recipes(recipe_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name)
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name)
 );
 
-CREATE TABLE ingredient_categories
+CREATE TABLE Ingredient_Categories
 (
     ingredient_type INT NOT NULL,
     ingredient_category_name VARCHAR(45) NOT NULL,

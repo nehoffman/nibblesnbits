@@ -4,16 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Nathan Hoffman">
-	<link rel="stylesheet" type="text/css" href="MainStyles">
-    <link rel="stylesheet" type="text/css" href="SearchStyles">
+	<link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+    <link rel="stylesheet" type="text/css" href="css/SearchStyles.css">
 </head>
 
 <body>
         <ul id="Nav_Bar">
-            <li><a href="Index">Home</a></li>
+            <li><a href="index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
-            <li><a href="Categories">Categories</a></li>
+            <li><a href="Catagories">Catagories</a></li>
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
@@ -81,7 +81,6 @@
 						
 				}
 
-<<<<<<< HEAD
 				$queryHeader="SELECT DISTINCT recipe_id, recipe_name FROM Recipes, Ingredient_List, Ingredients ".
 							 "WHERE Ingredients.ingredient_id = Ingredient_List.ingredient_id AND Recipes.recipe_id = ".
 							 "Ingredient_List.recipe_id AND (ingredient_name = :ingredientName0";
@@ -122,11 +121,7 @@
 	<input type='checkbox' name='submitted' value='true'>
 	<!--<script type="text/javascript" src="javascript/dragAndDrop.js"></script> NOT READY YET-->
 	
-=======
->>>>>>> 52b7d2837aa4a1939a933bd9ad79d38daa028b4a
 </form>
-
-	<script type="text/javascript" src="DragAndDrop">console.log("3");</script>
 	
 </body>
 </html>

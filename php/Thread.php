@@ -28,12 +28,12 @@
         </ul>
 		<ul styles="height: 70%" id="search">
 			<?php
-				if($_POST["post"]  != null)
+				/*if($_POST["post"]  != null)
 				{
 					$error = connectServer("CALL insertPost('".$_POST["post"]."','".$_SESSION["userName"]."','".$_GET["thread_id"]."')", $_SESSION["userName"]);
 					if($error != null)
 						echo "<script> alert('$error'); </script>";
-				}
+				}*/
 				$posts = connectServer("CALL getPosts(".$_GET["thread_id"].")", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($posts))
 				{
@@ -45,7 +45,7 @@
 			?>
 		</ul>
 		<?php
-		if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5)
+		/*if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5)
 		{
 			//form to post a message
 			echo "<form action='Thread?thread_id=".$_GET["thread_id"]."' id='add' method='POST'>";
@@ -53,7 +53,7 @@
 			echo "<input type='text' name='post'>";
 			echo "<input type='submit' value='Post'";
 			echo "</form>";
-		}
+		}*/
 		?>
 	</body>
 </html>

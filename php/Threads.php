@@ -1,7 +1,6 @@
 <?php
 	//Start the session
 	session_start();
-	include 'Functions';
 ?>
 <DOCTYPE html>
 <html>
@@ -14,6 +13,7 @@
     <body>
         <h1>Project Nibbles and Bits</h1>
 		<?php
+			include 'Functions';
 			loginDisplay($_SESSION["userName"]);
 			if($_GET["topic_id"] != null)
 				$_SESSION["topic_id"] = $_GET["topic_id"];

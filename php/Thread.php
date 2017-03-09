@@ -33,7 +33,7 @@
 					echo "<p>" . $row["post_content"] . "</p>";
 					echo "</li>";
 				}
-				if($_SESSION["privelege"] != -1 && <= 5)
+				if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5)
 				{
 					//form to post a message
 					echo "<form method='POST'>";

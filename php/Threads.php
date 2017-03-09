@@ -43,7 +43,7 @@
 						echo "<button class='search' onclick=location.href='Thread?thread_id=" . $row["thread_id"] . "'>" . $row["thread_name"] . "</button>";
 						echo "<br>";
 				}
-				if($_SESSION["privelege"] != -1 && <= 5)
+				if($_SESSION["privelege"] != -1 && $_SESSION["privelege"] <= 5)
 				{
 					//form to add a thread
 					echo "<form method='POST'>";

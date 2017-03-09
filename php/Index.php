@@ -9,7 +9,6 @@
         <title>Project Nibbles and Bits</title>
         <script src="MainJs"></script>
     </head>
-    
     <body>
         <h1>Project Nibbles and Bits</h1>
 		<?php
@@ -33,6 +32,7 @@
 		</form>
 		<ul id="recipeSearch">
 			<?php
+				echo "<p> hello </p>";
 				$recipes = connectServer("CALL getRecipes('".$_GET["recipeName"]."');", $_SESSION["userName"]);
 				while($row = mysqli_fetch_assoc($recipes))
 				{

@@ -8,9 +8,9 @@ VALUES
 ('dschab', 'DS', 'sprfly', 'dschab@socc.edu', 10, 'Diana', 'Schab', 'USA', 'OR', NULL);
 
 INSERT INTO Topics
-(topic_name, user_name, parent_topic)
+(topic_name, parent_topic)
 VALUES
-('Dianas Recipes', 'dschab', NULL);
+('Recipes', NULL);
 
 INSERT INTO Threads
 (thread_name,user_name,topic_id)

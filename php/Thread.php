@@ -24,13 +24,11 @@
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
 		<?php
-			$recipe = connectServer("CALL recipeFound('".$_GET["recipe_id"]."')", $_SESSION["userName"]);
-			while($row = mysqli_fetch_assoc($recipe))
+			$posts = connectServer("CALL getPosts('".$_GET["thread_id"]."')", $_SESSION["userName"]);
+			while($row = mysqli_fetch_assoc($posts))
 			{
-				echo "<p>";
-				echo "<h2>" . $row["recipe_name"] . "</h2>";
-				echo $row["recipe_instructions"];
-				echo "</p>";
+				echo "<p style='float: right'>" . $row["user_name"] . " posted at " . $row["time_posted"] . "</p><br>";
+				echo "<p>" . $row["post_content"] . "</p>";
 			}
 		?>
 	</body>

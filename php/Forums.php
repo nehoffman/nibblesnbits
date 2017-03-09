@@ -13,7 +13,7 @@
     <body>
         <h1>Project Nibbles and Bits</h1>
        	<?php
-		include 'Functions.php';
+		include 'Functions';
 		loginDisplay($_SESSION["userName"]);
 	?>
         

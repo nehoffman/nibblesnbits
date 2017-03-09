@@ -10,8 +10,6 @@
         <title>Project Nibbles and Bits</title>
     </head>
     
-    
-    
     <body>
         <h1>Project Nibbles and Bits</h1>
 

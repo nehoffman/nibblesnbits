@@ -44,25 +44,21 @@
 
 	function loginDisplay($userName)
 	{
-		if($userName == null)
-			echo '
-				<form action="TempLogIn" method="post" id="Login_Form">
+		$loginForm = '<form action="TempLogIn" method="post" id="Login_Form">
 				<label>User Name: </label>
 				<input type="text" name="userName" placeholder="User Name">
 				<label>Password: </label>
 				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="Submit" value="login"> <button onclick=location.href="SignUp"> Register </button>
-        		</form>';
+				<input type="submit" name="Submit" value="login"> <button onclick=location.href="SignUp"> Register </button>';
+		if($_GET["logout"] == 'true')
+		{
+			$_SESSION["userName"] = null;
+			echo $loginForm . "</form>";	
+		}
+		else if($userName == null)
+			echo $loginForm . "</form>";	
 		else if($userName == "login")
-			echo '
-				<form action="TempLogIn.php" method="post" id="Login_Form">
-				<label>User Name: </label>
-				<input type="text" name="userName" placeholder="User Name">
-				<label>Password: </label>
-				<input type="password" name="password" placeholder="Password">
-				<input type="submit" name="Submit"> <button onclick=location.href="SignUp"> Register </button>
-				login failed
-        		</form>';
+			echo $loginForm . "login failed </form>";
 		else
 		{
 			echo "<ul>";

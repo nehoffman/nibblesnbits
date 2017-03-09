@@ -16,13 +16,13 @@
 	<body>
 		<p> loading... </p>
 		<?php
-			include 'functions.php';
+			include 'Functions';
 			$result = login($_POST["userName"], $_POST["password"]);
 			if($result == -1)
 				$_SESSION["userName"] = "login";
 			else
 				$_SESSION["userName"] = $_POST["userName"];
-			header('Location: index.php');
+			header('Location: Index');
 		?>
 	</body>
 </html>

@@ -6,43 +6,38 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+        <link rel="stylesheet" type="text/css" href="MainStyles">
         <title>Project Nibbles and Bits</title>
     </head>
     
     <body>
         <h1>Project Nibbles and Bits</h1>
        	<?php
-		include 'functions.php';
-		loginDisplay($_SESSION["userName"]);
-	?>
-        
-        <form action="php/tempLogIn.php" method="post" id="Login_Form">
-            <label>User Name: </label>
-            <input type="text" name="userName" placeholder="User Name">
-            <label>Password: </label>
-            <input type="password" name="password" placeholder="Password">
-            <input type="submit" name="Submit">
-        </form>
-
-        
-        
+			include 'Functions';
+			loginDisplay($_SESSION["userName"]);
+		?>
         <ul id="Nav_Bar">
-            <li><a href="index">Home</a></li>
+            <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
-            <li><a href="Catagories">Catagories</a></li>
+            <li><a href="Categories">Categories</a></li>
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
-        
-        
-        <p1>
-
-        </p1>
-        
-        
-
+		<h2>Topic Search</h2>
+		<form action="Forums" method="get">
+         	<input type="search" name="topic"> 
+			<input id="Recipe_Submit" type="submit" value="Find Topics"> 
+		</form>
+		<ul styles="height: 70%" id="search">
+			<?php
+				$topics = connectServer("CALL getTopics('".$_GET["topic"]."');", $_SESSION["userName"]);
+				while($row = mysqli_fetch_assoc($topics))
+				{
+						echo "<button class='search' onclick=location.href='Threads?topic_id=" . $row["topic_id"] . "'>" . $row["topic_name"] . "</button>";
+						echo "<br>";
+				}
+			?>
+		</ul>
     </body>
-    
 </html>

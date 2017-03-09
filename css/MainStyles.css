@@ -69,7 +69,13 @@ p1 {
 }
 
 /* recipe search styles */
-#recipeSearch
+#add
+{
+	float: left;
+	margin-left: 12%;
+}
+
+#search
 {
     float: left;
     background-color: gainsboro;
@@ -80,7 +86,21 @@ p1 {
     overflow: scroll;
 }
 
-button.recipeSearch
+button.search
+{
+    float: left;
+    font-size: 25;
+    background-color: white;
+    border: 1px;
+    padding: 20px;
+    clear: both;
+    margin: 2px;
+    border: 1px solid black;
+    outline-color: purple;
+    border-radius: 2.5px;
+}
+
+li.search
 {
     float: left;
     font-size: 25;

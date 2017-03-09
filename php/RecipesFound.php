@@ -6,23 +6,23 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
-        <link rel="stylesheet" type="text/css" href="css/SearchStyles.css">
+        <link rel="stylesheet" type="text/css" href="MainStyles">
+        <link rel="stylesheet" type="text/css" href="SearchStyles">
         <title>Project Nibbles and Bits</title>
     </head>
     
     <body>
         <h1>Project Nibbles and Bits</h1>
 	<?php
-		include 'functions.php';
+		include 'Functions';
 		loginDisplay($_SESSION["userName"]);
 	?>
         
         <ul id="Nav_Bar">
-            <li><a href="index">Home</a></li>
+            <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
-            <li><a href="Catagories">Catagories</a></li>
+            <li><a href="Categories">Categories</a></li>
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>

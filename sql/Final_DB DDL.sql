@@ -25,10 +25,8 @@ CREATE TABLE Topics
 (
    topic_id INT NOT NULL AUTO_INCREMENT,
    topic_name VARCHAR(90) NOT NULL UNIQUE,
-   user_name VARCHAR(45) NOT NULL,
    parent_topic INT,
    CONSTRAINT PRIMARY KEY Topics(topic_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
    CONSTRAINT FOREIGN KEY (parent_topic) REFERENCES Topics(topic_id)
 );
 
@@ -39,6 +37,7 @@ CREATE TABLE Threads
    user_name VARCHAR(45) NOT NULL,
    topic_id INT NOT NULL,
    CONSTRAINT PRIMARY KEY (thread_id),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
    CONSTRAINT FOREIGN KEY (topic_id) REFERENCES Topics(topic_id)
 );
 

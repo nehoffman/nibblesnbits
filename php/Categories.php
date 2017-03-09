@@ -6,8 +6,8 @@
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="mainstyles.css">
-        <link rel="stylesheet" type="text/css" href="SearchStyles.css">
+        <link rel="stylesheet" type="text/css" href="MainStyles">
+        <link rel="stylesheet" type="text/css" href="SearchStyles">
         <title>Project Nibbles and Bits</title>
     </head>
     

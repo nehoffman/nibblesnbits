@@ -36,7 +36,6 @@ END//
 
 DELIMITER ;
 
-SELECT login("login", "login");
 /* creates a user */
 CREATE PROCEDURE createUser
 (

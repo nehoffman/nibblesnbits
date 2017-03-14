@@ -31,11 +31,14 @@
 		</form>
 		<ul styles="height: 70%" id="search">
 			<?php
-				$topics = connectServer("CALL getTopics('".$_GET["topic"]."');", $_SESSION["userName"]);
-				while($row = mysqli_fetch_assoc($topics))
+				$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				$resultSet = $db->prepare("CALL getTopics('".$_GET["topic"]."');");
+				$resultSet->execute();
+				for($i=0;$i<$resultSet->rowCount();$i++)
 				{
-						echo "<button class='search' onclick=location.href='Threads?topic_id=" . $row["topic_id"] . "'>" . $row["topic_name"] . "</button>";
-						echo "<br>";
+					$resultArray = $resultSet->fetch();
+					echo "<button class='search' onclick=location.href='Threads?topic_id=" . $resultArray["topic_id"] . "'>" . $resultArray["topic_name"] . "</button>";
+					echo "<br>";
 				}
 			?>
 		</ul>

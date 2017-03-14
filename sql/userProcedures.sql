@@ -59,7 +59,6 @@ BEGIN
 		ON users.updatePassword, users.updateUserName, users.updateDisplayName
 		TO userName;
 END//
-CALL PROCEDURE createUser(
 
 /* updates password */
 CREATE PROCEDURE updatePassword(DECLARE userName VARCHAR(45), DECLARE newPassword VARCHAR(45))

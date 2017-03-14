@@ -15,8 +15,6 @@
 		<?php
 			include 'Functions';
 			loginDisplay($_SESSION["userName"]);
-			if($_GET["topic_id"] != null)
-				$_SESSION["topic_id"] = $_GET["topic_id"];
 		?>
 
         <ul id="Nav_Bar">
@@ -29,10 +27,15 @@
         </ul>
 		<?php
 			//retrieves the header
-			$topic = connectServer("CALL topicFound('".$_GET["topic_id"]."')", $_SESSION["userName"]);
-			while($row = mysqli_fetch_assoc($topic))
+			if($_GET["topic_id"] != null)
+				$_SESSION["topic_id"] = $_GET["topic_id"];
+			$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+			$resultSet = $db->prepare("CALL topicFound('".$_SESSION["topic_id"]."')");
+			$resultSet->execute();
+			for($i=0;$i<$resultSet->rowCount();$i++)
 			{
-				echo "<h2>" . $row["topic_name"] . "</h2>";
+				$resultArray = $resultSet->fetch();
+				echo "<h2>" . $resultArray["topic_name"] . "</h2>";
 			}
 		?>
 		<form method='GET'>
@@ -41,12 +44,17 @@
 		</form>
 		<ul style="height: 70%" id="search">
 			<?php
-				connectServer("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', ".$_GET["topic_id"].")", $_SESSION["userName"]);
-				$threads = connectServer("CALL getThreads('".$_GET["topic"]."',".$_SESSION["topic_id"].");", $_SESSION["userName"]);
-				while($row = mysqli_fetch_assoc($threads))
+				//$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				//$resultSetA = $db->prepare("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', ".$_GET["topic_id"].")");
+				//$resultSetA->execute();
+				$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				$resultSet = $db->prepare("CALL getThreads('".$_GET["topic"]."',".$_SESSION["topic_id"].");");
+				$resultSet->execute();	
+				for($i=0;$i<$resultSet->rowCount();$i++)
 				{
-						echo "<button class='search' onclick=location.href='Thread?thread_id=" . $row["thread_id"] . "'>" . $row["thread_name"] . "</button>";
-						echo "<br>";
+					$resultArray = $resultSet->fetch();
+					echo "<button class='search' onclick=location.href='Thread?thread_id=" . $resultArray["thread_id"] . "'>" . $resultArray["thread_name"] . "</button>";
+					echo "<br>";
 				}
 			?>
 		</ul>

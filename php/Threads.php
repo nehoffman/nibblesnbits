@@ -5,9 +5,9 @@
 <DOCTYPE html>
 <html>
     <head>  
-        <link rel="stylesheet" type="text/css" href="MainStyles">
+        <link rel="stylesheet" type="text/css" href="MainStyles.css">
         <title>Project Nibbles and Bits</title>
-        <script src="MainJS"></script>
+        <script src="MainJS.js"></script>
     </head>
     
     <body>

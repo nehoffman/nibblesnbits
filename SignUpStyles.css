@@ -1,0 +1,137 @@
+p1 {
+	height: 75%;
+	width: 60%;
+	position: fixed;
+	background-color: gainsboro;
+	left: 20%;
+}
+
+
+#User_Create {
+	height: 100%;
+	width: 100%;
+}
+
+
+/* Label Styles */
+#Label_1 {
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
+
+#Label_2 {
+	position: absolute;
+	left: 5%;
+	top: 15%;
+}
+
+#Label_3 {
+	position: absolute;
+	left: 5%;
+	top: 25%;
+}
+
+#Label_4 {
+	position: absolute;
+	left: 5%;
+	top: 35%;
+}
+
+#Label_5 {
+	position: absolute;
+	left: 5%;
+	top: 45%;
+}
+
+#Label_6 {
+	position: absolute;
+	left: 5%;
+	top: 55%;
+}
+
+#Label_7 {
+	position: absolute;
+	left: 5%;
+	top: 65%;
+}
+
+#Label_8 {
+	position: absolute;
+	left: 5%;
+	top: 75%;
+}
+
+#Label_9 {
+	position: absolute;
+	left: 5%;
+	top: 85%;
+}
+
+
+
+/* Input Styles */
+#Email_Input {
+	position: absolute;
+	left: 20%;
+	top: 7%;
+}
+
+
+#User_Name_Input {
+	position: absolute;
+	left: 20%;
+	top: 15%;
+}
+
+
+#User_Password_Input {
+	position: absolute;
+	left: 20%;
+	top: 27%;
+}
+
+#Re_Enter_Password {
+	position: absolute;
+	left: 20%;
+	top: 34%;
+}
+
+#First_Name_Input {
+	position: absolute;
+	left: 20%;
+	top: 48%;
+}
+
+#Last_Name_Input {
+	position: absolute;
+	left: 20%;
+	top: 54%;
+}
+
+
+#Select_Country {
+	position: absolute;
+	left: 20%;
+	top: 67%;
+}
+
+
+#Select_State {
+	position: absolute;
+	left: 20%;
+	top: 75%;
+}
+
+#DOB_Input {
+	position: absolute;
+	left: 20%;
+	top: 88%;
+}
+
+
+#Account_Create_Submit {
+	position: absolute;
+	left: 20%;
+	top: 95%;
+}

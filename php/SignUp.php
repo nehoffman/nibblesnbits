@@ -1,20 +1,23 @@
 <?php
 	//Start the session
-	session_start();
+	
+	//Logs the user out
+	$_SESSION["userName"] = null;
+	$_SESSION["PDO"] = null;
 ?>
 <DOCTYPE html>
 <html>
     
     <head>  
-        <link rel="stylesheet" type="text/css" href="MainStyles.css">
-        <link rel="stylesheet" type="text/css" href="SignUpStyles.css">
+        <link rel="stylesheet" type="text/css" href="css/mainstyles.css">
+        <link rel="stylesheet" type="text/css" href="css/signupstyles.css">
         <title>Project Nibbles and Bits</title>
     </head>
     
     <body>
         <h1>Project Nibbles and Bits</h1>
 	<?php
-		include 'Functions';
+		include '/usr/share/nibblesnbits/php/Functions.php';
 		loginDisplay($_SESSION["userName"]);
 	?>
         

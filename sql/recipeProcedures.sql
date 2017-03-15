@@ -1,4 +1,4 @@
-/*
+d/*
 *Jacob Baker
 *February 23, 2017
 *recipeProcedures.sql - contains all procedures for recipe data
@@ -74,6 +74,16 @@ CREATE PROCEDURE insertThread(name VARCHAR(128), user VARCHAR(45), topic INT)
 BEGIN
 	INSERT INTO Threads(thread_name, user_name, topic_id) VALUES
 		(name, user, topic);
+END//
+
+/* retrieves ingredients for a recipe */
+CREATE PROCEDURE getIngredients(recipeId INT)
+BEGIN
+	Select * from Ingredient_List, Ingredients, Measurement_Types
+		WHERE
+			Measurement_Types.measurement_id = Ingredient_List.measurement_id AND
+			Ingredient_List.ingredient_id = Ingredients.ingredient_id AND
+			recipe_id = recipeId;
 END//
 
 /* changes it back */

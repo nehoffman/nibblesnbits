@@ -1,0 +1,12 @@
+/* Recipe form styles */
+#Create_Recipe {
+    position: fixed;
+    left: 20%;
+    top: 20%;
+    background-color: gainsboro;
+    padding: 2%;
+    border-radius: 5%;
+    height: 40%;
+    width: 50%;
+ }
+

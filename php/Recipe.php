@@ -24,14 +24,36 @@
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
 		<?php
-			$recipe = connectServer("CALL recipeFound('".$_GET["recipe_id"]."')", $_SESSION["userName"]);
-			while($row = mysqli_fetch_assoc($recipe))
-			{
-				echo "<p>";
-				echo "<h2>" . $row["recipe_name"] . "</h2>";
-				echo $row["recipe_instructions"];
-				echo "</p>";
-			}
+			//recipe details
+			$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+			$resultSet = $db->prepare("CALL recipeFound('".$_GET["recipe_id"]."');");
+			$resultSet->execute();
+			$resultArray = $resultSet->fetch();
+			$recipeId = $resultArray["recipe_id"];
+			echo "<h2>" . $resultArray["recipe_name"] . "</h2>";
+			echo "<p id='instructions'>";
+			echo $resultArray["recipe_instructions"];
+			echo "</p>";
+			$resultSet->closeCursor();
 		?>
+		
+		<ul id='ingredients'>
+			<?php
+				//ingredient details
+				$resultSet = $db->prepare("CALL getIngredients($recipeId)");
+				$resultSet->execute();
+				echo "<li> Ingredients: </li><br>";
+				for($i=0;$i<$resultSet->rowCount();$i++)
+				{
+					$resultArray = $resultSet->fetch();
+					echo "<li class='ingredients'>";
+					echo "<img src='" . $resultArray["ingredient_image"] . "'> ";
+					echo $resultArray["ingredient_name"];
+					echo " " . $resultArray["measurement"] . $resultArray["measurement_name"];
+					echo "</li><br>";
+				}
+				$resultSet->closeCursor();
+			?>
+		</ul>
 	</body>
 </html>

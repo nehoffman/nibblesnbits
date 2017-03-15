@@ -7,16 +7,10 @@
 	function login($userName, $password)
 	{
 		$link = mysqli_connect("localhost","login","login","users");
-		if(mysqli_connect_errno())
-			$result = "Failed to connect to MySQL: " . mysqli_connect_error();
-		else
-		{
-			$result = mysqli_query($link, "SELECT login('$userName','$password') AS privelege");
-			while($row = mysqli_fetch_assoc($result))
-				$result = $row["privelege"];
-		}
-		mysqli_close();
-		return $result;
+		$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+		$resultSet = $db->prepare("SELECT login('$userName','$password') AS privelege;");
+		$resultSet->execute();
+		return $resultArray["privelege"];
 	}
 
 	function loginDisplay($userName)

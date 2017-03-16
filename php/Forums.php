@@ -30,7 +30,7 @@
 		</form>
 		<ul styles="height: 70%" id="search">
 			<?php
-				$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
 				$resultSet = $db->prepare("CALL getTopics('".$_GET["topic"]."');");
 				$resultSet->execute();
 				for($i=0;$i<$resultSet->rowCount();$i++)

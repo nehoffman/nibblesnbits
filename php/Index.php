@@ -12,7 +12,8 @@
         <ul id="Nav_Bar">
             <li><a href="index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
-			<li><a href="MyRecipes">My Recipes</a></li>
+            <li><a href="MyRecipes">My Recipes</a></li>
+            <li><a href="Catagories">Catagories</a></li>
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
@@ -67,58 +68,79 @@
 	<ul id="Recipe_List">
 		<?php
 			ini_set("display_errors", "1");
+			ini_set('memory_limit', '1024M');
 			error_reporting(E_ERROR);
 		
 			if($_POST['submitted'] != null) {
 				
 				$ingredientsSelected = array();
 				
+				$b = 0;
+				
 				foreach($_POST as $key => $value) {
 					if($key != "ingredientSearch" && $key != "submitted") {
-						$ingredientsSelected[] = $value;
+						$ingredientsSelected[$b] = $value;
+						$b = $b + 1;
 					}
 						
 				}
-
-				$queryHeader="SELECT DISTINCT recipe_id, recipe_name FROM Recipes, Ingredient_List, Ingredients ".
+				
+				$queryHeader="SELECT DISTINCT Recipes.recipe_id, recipe_name FROM Recipes, Ingredient_List, Ingredients ".
 							 "WHERE Ingredients.ingredient_id = Ingredient_List.ingredient_id AND Recipes.recipe_id = ".
 							 "Ingredient_List.recipe_id AND (ingredient_name = :ingredientName0";
 				
 				$queryFooter="";
 				
-				for($i = 1; i < count($ingredientsSelected); $i++)
+				if(count($ingredientsSelected) != null)
+				for($i = 1; $i < count($ingredientsSelected); $i++)
 				{
 					$queryFooter .= " OR ingredient_name = :ingredientName" . $i;
 				}
 				
 				$queryFooter .= ");";
 				
+				try
+				{
+					$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "Password1");
+				}
+				catch(PDOException $e)
+				{
+					echo($e->getMessage());
+				}
+				
 				$recipesFound = $db->prepare($queryHeader . $queryFooter);
 				
-				for($i = 0; i < count($ingredientsSelected); $i++)
+			
+				
+				if(count($ingredientsSelected) != null)
+				for($i = 0; $i < count($ingredientsSelected); $i++)
 				{
-					$recipesFound->bindValue(":ingredientName" + $i, $ingredientsSelected[$i]);
+					$recipesFound->bindValue(":ingredientName" . $i, $ingredientsSelected[$i]);
 				}
 				
-				$recipesFound->execute($ingredientsSelected);
+				$recipesFound->execute();
 				
-				//echo($recipesFound->rowCount());
-				
-				for($i = 1; $i < count($ingredientsSelected) + 1; $i++)
+				$resultArray2 = $recipesFound->fetch();
+				while ($resultArray2 != null)
 				{
-					$resultArray = $recipesFound->fetch();
+					// Use $resultArray2['recipe_id'] to use the id for something;
+					// Redirect to the recipe display from here
 					echo "<li>";
-					echo $resultArray["recipe_name"];
+					echo $resultArray2['recipe_name'];
 					echo "</li>";
+					$resultArray2 = $recipesFound->fetch();
 				}
-		
-			$recipesFound->closeCursor();
+				
+				$recipesFound->closeCursor();
 			}
 		?>
 	</ul>
 	
+	<ul id="Ingredients_Chosen">
+	</ul>
+	
 	<input type='checkbox' name='submitted' value='true'>
-	<!--<script type="text/javascript" src="javascript/dragAndDrop.js"></script> NOT READY YET-->
+	<script type="text/javascript" src="javascript/dragAndDrop.js"></script>
 	
 </form>
 	

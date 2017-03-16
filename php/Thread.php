@@ -33,8 +33,10 @@
 					if($error != null)
 						echo "<script> alert('$error'); </script>";
 				}*/
-				$posts = connectServer("CALL getPosts(".$_GET["thread_id"].")", $_SESSION["userName"]);
-				while($row = mysqli_fetch_assoc($posts))
+				$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
+				$resultSet = $db->prepare("CALL getPosts(".$_GET["thread_id"].");");
+				$resultSet->execute();
+				for($i=0;$i<$resultSet->rowCount();$i++)
 				{
 					echo "<li class='search'>";
 					echo "<p style='float: right'>" . $row["user_name"] . " posted at " . $row["time_posted"] . "</p><br>";

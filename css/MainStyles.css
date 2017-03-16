@@ -110,7 +110,8 @@ button.search
     border: 1px;
     padding: 20px;
     clear: both;
-    margin: .5%;
+    margin-left: .5%;
+	margin-right: .5%;
 	width: 99%;
     border: 1px solid black;
     outline-color: purple;
@@ -140,7 +141,8 @@ li.search
     border: 1px;
     padding: 20px;
     clear: both;
-    margin: .5%;
+    margin-left: .5%;
+	margin-right: .5%;
 	width: 99%;
     border: 1px solid black;
     outline-color: purple;

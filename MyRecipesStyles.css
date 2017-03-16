@@ -1,0 +1,14 @@
+#Create_Recipes {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    font-size: 15pt;
+    width: 40%;
+    height: 80%;
+}
+
+#Recipe_Name_Field {
+    height: 8%;
+    width: 40%;
+    font-size: 15pt;
+}

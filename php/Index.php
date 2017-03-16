@@ -4,8 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="author" content="Nathan Hoffman">
-	<link rel="stylesheet" type="text/css" href="css/mainstyles.css">
-    <link rel="stylesheet" type="text/css" href="css/SearchStyles.css">
+	<link rel="stylesheet" type="text/css" href="MainStyles">
+    <link rel="stylesheet" type="text/css" href="SearchStyles">
 </head>
 
 <body>

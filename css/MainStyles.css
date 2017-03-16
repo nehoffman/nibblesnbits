@@ -150,7 +150,6 @@ li.search
 /* Login Styles */
 #Login_Form {
     position: fixed;
-    height: 2.5%;
     right: 2%;
     top: 1%;
     background-color: gainsboro;

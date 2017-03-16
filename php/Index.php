@@ -10,7 +10,7 @@
 
 <body>
         <ul id="Nav_Bar">
-            <li><a href="index">Home</a></li>
+            <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
             <li><a href="Catagories">Catagories</a></li>

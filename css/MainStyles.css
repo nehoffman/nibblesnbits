@@ -111,6 +111,7 @@ button.search
     padding: 20px;
     clear: both;
     margin: 2px;
+	width: 93%;
     border: 1px solid black;
     outline-color: purple;
     border-radius: 2.5px;
@@ -140,6 +141,7 @@ li.search
     padding: 20px;
     clear: both;
     margin: 2px;
+	width: 93%;
     border: 1px solid black;
     outline-color: purple;
     border-radius: 2.5px;

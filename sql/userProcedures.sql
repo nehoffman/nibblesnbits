@@ -6,8 +6,6 @@
 
 /* changes delimiter */
 DELIMITER //
- 
-DROP FUNCTION IF EXISTS login;
 
 /* uses select statements to "login" */
 /* if login succedes than it returns the privelege level between 0 and 10 else it returns -1 */
@@ -24,7 +22,7 @@ BEGIN
 	DECLARE CONTINUE HANDLER FOR NOT FOUND
 		SET privelege = -1;
 
-	SELECT privelege_level
+	SELECT privilege_level
 		INTO privelege
 		FROM Users
 		WHERE
@@ -34,56 +32,52 @@ BEGIN
 	RETURN(privelege);
 END//
 
-DELIMITER ;
-
-/* creates a user */
+/* creates a user
 CREATE PROCEDURE createUser
 (
-DECLARE userName VARCHAR(45),
-DECLARE password VARCHAR(45), 
-DECLARE email VARCHAR(45),
-DECLARE firstName VARCHAR(45),
-DECLARE lastName VARCHAR(45),
-DECLARE country VARCHAR(45),
-DECLARE state VARCHAR(2),
-DECLARE dob DATE
-OUT DECLARE message VARCHAR(64);
+userName VARCHAR(45),
+password VARCHAR(45), 
+email VARCHAR(45),
+firstName VARCHAR(45),
+lastName VARCHAR(45),
+country VARCHAR(45),
+state VARCHAR(2),dob DATE
 )
 BEGIN
-	/* adds user to database */
+	/* adds user to database
 	INSERT INTO Users VALUE
 		(userName, CONCAT(firstName, ' ', lastName), password, email, 1, firstName, lastName, country, state, dob);
-	/* creates mysql user */
+	/* creates mysql user
 	CREATE USER userName IDENTIFIED BY password;
 	GRANT EXECUTE
 		ON users.updatePassword, users.updateUserName, users.updateDisplayName
 		TO userName;
-END//
+END//*/
 
-/* updates password */
+/* updates password
 CREATE PROCEDURE updatePassword(DECLARE userName VARCHAR(45), DECLARE newPassword VARCHAR(45))
 BEGIN
 	UPDATE Users
 		WHERE user_name = userName
 		SET hash_password = newPassword;
 	/* needs to change password for database
-END//
+END//*/
 
-/* updates userName */
+/* updates userName
 CREATE PROCEDURE updateUserName(DECLARE userName VARCHAR(45), DECLARE newUserName VARCHAR(45))
 BEGIN
 	UPDATE Users
 		SET user_name = newUserName
 		WHERE user_name = userName;
-END//
+END//*/
 
-/* updates displayName */
+/* updates displayName
 CREATE PROCEDURE updateDisplayName(DECLARE userName VARCHAR(45), DECLARE newDisplayName VARCHAR(45))
 BEGIN
 	UPDATE Users
 		SET display_name = newDisplayName
 		WHERE user_name = userName;
-END//
+END//*/
 
 /* changes it back */
 DELIMITER ;

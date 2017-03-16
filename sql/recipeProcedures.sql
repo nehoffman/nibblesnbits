@@ -1,4 +1,4 @@
-d/*
+/*
 *Jacob Baker
 *February 23, 2017
 *recipeProcedures.sql - contains all procedures for recipe data

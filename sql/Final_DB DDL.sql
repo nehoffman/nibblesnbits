@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS users;
-DROP DATABASE IF EXISTS recipes;
-CREATE DATABASE users;
-CREATE DATABASE recipes;
-USE users;
+DROP DATABASE IF EXISTS Final_DB;
+CREATE DATABASE Final_DB;
+USE Final_DB;
 
 CREATE TABLE Users
 (
@@ -19,14 +17,14 @@ CREATE TABLE Users
    CONSTRAINT PRIMARY KEY (user_name)
 );
 
-use recipes;
-
 CREATE TABLE Topics
 (
    topic_id INT NOT NULL AUTO_INCREMENT,
    topic_name VARCHAR(90) NOT NULL UNIQUE,
+   user_name VARCHAR(45) NOT NULL,
    parent_topic INT,
    CONSTRAINT PRIMARY KEY Topics(topic_id),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name),
    CONSTRAINT FOREIGN KEY (parent_topic) REFERENCES Topics(topic_id)
 );
 
@@ -37,7 +35,6 @@ CREATE TABLE Threads
    user_name VARCHAR(45) NOT NULL,
    topic_id INT NOT NULL,
    CONSTRAINT PRIMARY KEY (thread_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
    CONSTRAINT FOREIGN KEY (topic_id) REFERENCES Topics(topic_id)
 );
 
@@ -49,7 +46,7 @@ CREATE TABLE Posts
    user_name VARCHAR(45) NOT NULL,
    thread_id INT NOT NULL,
    CONSTRAINT PRIMARY KEY (post_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name),
    CONSTRAINT FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
 );
 
@@ -65,7 +62,7 @@ CREATE TABLE Recipes
    difficulty INT NOT NULL,
    comment VARCHAR(500),
    CONSTRAINT PRIMARY KEY (recipe_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name),
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name),
    CONSTRAINT FOREIGN KEY (thread_id) REFERENCES Threads(thread_id)
 );
 
@@ -91,10 +88,10 @@ CREATE TABLE User_Favorites
    user_name VARCHAR(45) NOT NULL,
    CONSTRAINT PRIMARY KEY (recipe_id, user_name),
    CONSTRAINT FOREIGN KEY (recipe_id) REFERENCES Recipes(recipe_id),
-   CONSTRAINT FOREIGN KEY (user_name) REFERENCES users.Users(user_name)
+   CONSTRAINT FOREIGN KEY (user_name) REFERENCES Users(user_name)
 );
 
-CREATE TABLE Ingredient_Categories
+CREATE TABLE ingredient_categories
 (
     ingredient_type INT NOT NULL,
     ingredient_category_name VARCHAR(45) NOT NULL,
@@ -151,39 +148,36 @@ CREATE TABLE Nutrition
    ingredient_id INT NOT NULL,
    serving_size INT NOT NULL,
    measurement_id INT NOT NULL,
-   total_fat DECIMAL(9,2),
-   saturated_fat DECIMAL(9,2),
-   cholesterol DECIMAL(9,2),
-   sodium DECIMAL(9,2),
-   potassium DECIMAL(9,2),
-   total_carbohydrate DECIMAL(9,2),
-   fiber DECIMAL(9,2),
-   protein DECIMAL(9,2),
-   vitamin_a DECIMAL(9,2),
-   vitamin_c DECIMAL(9,2),
-   calcium DECIMAL(9,2),
-   iron DECIMAL(9,2),
-   vitamin_d DECIMAL(9,2),
-   vitamin_e DECIMAL(9,2),
-   vitamin_k DECIMAL(9,2),
-   thiamin DECIMAL(9,2),
-   riboflavin DECIMAL(9,2),
-   niacin DECIMAL(9,2),
-   vitamin_b6 DECIMAL(9,2),
-   foliate DECIMAL(9,2),
-   vitamin_b12 DECIMAL(9,2),
-   biotin DECIMAL(9,2),
-   pantothenic_acid DECIMAL(9,2),
-   phosphorus DECIMAL(9,2),
-   iodine DECIMAL(9,2),
-   magnesium DECIMAL(9,2),
-   zinc DECIMAL(9,2),
-   selenium DECIMAL(9,2),
-   copper DECIMAL(9,2),
-   manganese DECIMAL(9,2),
-   chromium DECIMAL(9,2),
-   molybdenum DECIMAL(9,2),
-   chloride DECIMAL(9,2),
+   total_fat DECIMAL(15,8),
+   saturated_fat DECIMAL(15,8),
+   cholesterol DECIMAL(15,8),
+   sodium DECIMAL(15,8),
+   potassium DECIMAL(15,8),
+   total_carbohydrate DECIMAL(15,8),
+   fiber DECIMAL(15,8),
+   protein DECIMAL(15,8),
+   vitamin_a DECIMAL(15,8),
+   vitamin_c DECIMAL(15,8),
+   calcium DECIMAL(15,8),
+   iron DECIMAL(15,8),
+   vitamin_d DECIMAL(15,8),
+   vitamin_e DECIMAL(15,8),
+   vitamin_k DECIMAL(15,8),
+   thiamin DECIMAL(15,8),
+   riboflavin DECIMAL(15,8),
+   niacin DECIMAL(15,8),
+   vitamin_b6 DECIMAL(15,8),
+   foliate DECIMAL(15,8),
+   vitamin_b12 DECIMAL(15,8),
+   pantothenic_acid DECIMAL(15,8),
+   phosphorus DECIMAL(15,8),
+   magnesium DECIMAL(15,8),
+   zinc DECIMAL(15,8),
+   selenium DECIMAL(15,8),
+   copper DECIMAL(15,8),
+   manganese DECIMAL(15,8),
+   calories DECIMAL(15,8),
+   sugar DECIMAL(15,8),
    CONSTRAINT PRIMARY KEY (ingredient_id),
    CONSTRAINT FOREIGN KEY (ingredient_id) REFERENCES Ingredients(ingredient_id),
    CONSTRAINT FOREIGN KEY (measurement_id) REFERENCES Measurement_Types(measurement_id)

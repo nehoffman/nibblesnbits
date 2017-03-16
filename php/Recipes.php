@@ -32,7 +32,7 @@
 		</form>
 		<ul id="search">
 			<?php
-				$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
 				$resultSet = $db->prepare("CALL getRecipes('".$_GET["recipeName"]."');");
 				$resultSet->execute();
 				for($i=0;$i<$resultSet->rowCount();$i++)

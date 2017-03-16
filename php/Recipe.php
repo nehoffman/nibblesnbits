@@ -19,13 +19,12 @@
             <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
-            <li><a href="Categories">Categories</a></li>
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
 		<?php
 			//recipe details
-			$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+			$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
 			$resultSet = $db->prepare("CALL recipeFound('".$_GET["recipe_id"]."');");
 			$resultSet->execute();
 			$resultArray = $resultSet->fetch();

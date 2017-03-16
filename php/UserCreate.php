@@ -27,7 +27,7 @@
 		// Logs in as the root user to add a user
 		try
 		{
-			$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "Password1");
+			$db = new PDO("mysql:host=localhost;dbname=Final_DB", "root", "password");
 		}
 		catch(PDOException $e)
 		{

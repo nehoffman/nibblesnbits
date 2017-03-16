@@ -6,7 +6,6 @@
 	//connects to server and logs you in succedes if it returns a positive privilige level
 	function login($userName, $password)
 	{
-		$link = mysqli_connect("localhost","login","login","users");
 		$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
 		$resultSet = $db->prepare("SELECT login('$userName','$password') AS privelege;");
 		$resultSet->execute();

@@ -21,7 +21,6 @@
             <li><a href="Index">Home</a></li>
             <li><a href="Recipes">Recipes</a></li>
             <li><a href="MyRecipes">My Recipes</a></li>
-            <li><a href="Categories">Categories</a></li>
             <li><a href="Forums">Forums</a></li>
             <li><a href="TipsAndTricks">Tips and Tricks</a></li>
         </ul>
@@ -29,7 +28,7 @@
 			//retrieves the header
 			if($_GET["topic_id"] != null)
 				$_SESSION["topic_id"] = $_GET["topic_id"];
-			$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+			$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
 			$resultSet = $db->prepare("CALL topicFound('".$_SESSION["topic_id"]."')");
 			$resultSet->execute();
 			for($i=0;$i<$resultSet->rowCount();$i++)
@@ -44,10 +43,10 @@
 		</form>
 		<ul style="height: 70%" id="search">
 			<?php
-				//$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				//$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
 				//$resultSetA = $db->prepare("CALL insertThread('".$_POST["threadName"]."', '".$_SESSION["userName"]."', ".$_GET["topic_id"].")");
 				//$resultSetA->execute();
-				$db = new PDO("mysql:host=localhost; dbname=recipes", "root", "password");
+				$db = new PDO("mysql:host=localhost; dbname=Final_DB", "root", "password");
 				$resultSet = $db->prepare("CALL getThreads('".$_GET["topic"]."',".$_SESSION["topic_id"].");");
 				$resultSet->execute();	
 				for($i=0;$i<$resultSet->rowCount();$i++)

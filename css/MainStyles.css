@@ -110,8 +110,8 @@ button.search
     border: 1px;
     padding: 20px;
     clear: both;
-    margin-left: .5%;
-	margin-right: .5%;
+    margin-left: .1%;
+	margin-right: .1%;
 	width: 99%;
     border: 1px solid black;
     outline-color: purple;
@@ -135,15 +135,14 @@ li.ingredients
 
 li.search
 {
-	padding: .5%;
     float: left;
     font-size: 25;
     background-color: white;
     border: 1px;
     padding: 20px;
     clear: both;
-    margin-left: .5%;
-	margin-right: .5%;
+    margin-left: .1%;
+	margin-right: .1%;
 	width: 99%;
     border: 1px solid black;
     outline-color: purple;

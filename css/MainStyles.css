@@ -135,6 +135,7 @@ li.ingredients
 
 li.search
 {
+	padding: .5%;
     float: left;
     font-size: 25;
     background-color: white;

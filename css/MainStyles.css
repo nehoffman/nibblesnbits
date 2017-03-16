@@ -110,7 +110,7 @@ button.search
     border: 1px;
     padding: 20px;
     clear: both;
-    margin: 2px;
+    margin: .5%;
 	width: 99%;
     border: 1px solid black;
     outline-color: purple;
@@ -140,7 +140,7 @@ li.search
     border: 1px;
     padding: 20px;
     clear: both;
-    margin: 2px;
+    margin: .5%;
 	width: 99%;
     border: 1px solid black;
     outline-color: purple;
@@ -150,8 +150,7 @@ li.search
 /* Login Styles */
 #Login_Form {
     position: fixed;
-    height: 5%;
-    width: 20%;
+    height: 2.5%;
     right: 2%;
     top: 1%;
     background-color: gainsboro;
